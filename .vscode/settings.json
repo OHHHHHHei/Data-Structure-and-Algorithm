@@ -1,0 +1,12 @@
+{
+    "code-runner.executorMap": {
+        "c": "g++ \"$fileName\" -o \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\"; if ($LASTEXITCODE -eq 0) { & \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\" }",
+        "cpp": "g++ \"$fileName\" -o \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\"; if ($LASTEXITCODE -eq 0) { & \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\" }"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.preserveFocus": false,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.fileDirectoryAsCwd": true,
+    "code-runner.ignoreSelection": false
+}
