@@ -70,8 +70,20 @@ int main()
     char pre[100];
     char in[100];
     BTNode* tree;
-    gets(pre);
-    gets(in);
+    //使用 fgets 读取
+    if (fgets(pre, sizeof(pre), stdin) == NULL) {
+        printf("读取失败\n");
+        return 1;
+    }
+    if (fgets(in, sizeof(in), stdin) == NULL) {
+        printf("读取失败\n");
+        return 1;
+    }
+    
+    // 移除换行符(重要!)
+    pre[strcspn(pre, "\n")] = '\0';
+    in[strcspn(in, "\n")] = '\0';
+
     int len_in = strlen(in);
 
     tree = CreateBT(pre, in, len_in);
