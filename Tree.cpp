@@ -37,7 +37,7 @@ BTNode* CreateBT(char *pre, char *in, int n)
     // 2. 先序第一个元素就是根节点的值
     head->data = pre[0];
     head->left = head->right = NULL;
-
+ 
     // 3. 在中序遍历中找到根节点的位置
     //    这样可以确定左右子树的范围
     int index = 0;

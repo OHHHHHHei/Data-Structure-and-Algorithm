@@ -150,6 +150,7 @@ void buildHuffmanTree(HuffmanNode tree[], int n) {
                 }
             }
         }
+        
         //生成新结点，连接父结点
         tree[index1].parent = i;
         tree[index2].parent = i;
