@@ -88,10 +88,10 @@ void build_huffmancode(huffman_node ht[], huffman_code hcd[], int n) {
     }
 }
 
-void print_huffmancode(huffman_code hcd[], int n) {
+void print_huffmancode(huffman_node ht[], huffman_code hcd[], int n) {
     for (int i = 0; i < n; i++)
     {
-        printf("%s\n", &hcd[i].cd[hcd[i].start]);
+        printf("%c: %s\n", ht[i].data, &hcd[i].cd[hcd[i].start]);
     }
     
 }
@@ -128,7 +128,7 @@ int main()
     //½øÐÐ¹þ·òÂü±àÂë
     build_huffmancode(ht, hcd, num);
 
-    print_huffmancode(hcd, num);
+    print_huffmancode(ht, hcd, num);
 
     free(ht);
     free(hcd);
