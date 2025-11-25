@@ -15,6 +15,7 @@ typedef struct ArcNode
 typedef struct VNode
 {
     int data;
+    int count;
     ArcNode *firstarc;
 }VNode, AdjList[MAXNODE];
 
@@ -130,7 +131,54 @@ void DFS1(AdjGraph *G, int v)
         {
             stack_top--;
         }
-
     }
 }
 
+void dfs_topological(AdjGraph *G)
+{
+    int stack[MAXV];
+    int stack_top = -1;
+    int n = G->vexnum;
+    //初始化入度
+    for (int i = 0; i < n; i++)
+    {
+        G->adjlist[i].count = 0;
+    }
+
+    //计算入度
+    for (int i = 0; i < n; i++)
+    {
+        ArcNode *p = G->adjlist[i].firstarc;
+        while (p != NULL)
+        {
+            G->adjlist[p->adjvex].count++;
+            p = p->nextarc;
+        }
+    }
+    
+    //把所有入度为0的点入栈
+    for (int i = 0; i < n; i++)
+    {
+        if (G->adjlist[i].count == 0)
+        {
+            stack[++stack_top] = G->adjlist[i].data;
+        }
+    }
+
+    while (stack_top >= 0)
+    {
+        //出栈访问并且减少邻居入度
+        int curr = stack[stack_top--];
+        printf("%d ", curr);
+        ArcNode *p = G->adjlist[curr].firstarc;
+        while (p != NULL)
+        {
+            G->adjlist[p->adjvex].count--;
+            if (G->adjlist[p->adjvex].count == 0)
+            {
+                stack[++stack_top] = G->adjlist[p->adjvex].data;
+            }
+            p = p->nextarc;
+        }
+    }
+}
