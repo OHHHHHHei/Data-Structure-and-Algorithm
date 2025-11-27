@@ -3,7 +3,7 @@
 #define MAXNODE 100
 #define MAXV 100
 
-//±ß½Úµã
+//è¾¹èŠ‚ç‚¹
 typedef struct ArcNode
 {
     int adjvex;
@@ -11,7 +11,7 @@ typedef struct ArcNode
     ArcNode *nextarc;
 }ArcNode;
 
-//Í·½Úµã
+//å¤´èŠ‚ç‚¹
 typedef struct VNode
 {
     int data;
@@ -19,7 +19,7 @@ typedef struct VNode
     ArcNode *firstarc;
 }VNode, AdjList[MAXNODE];
 
-//Í¼½á¹¹
+//å›¾ç»“æ„
 typedef struct graph
 {
     AdjList adjlist;
@@ -27,20 +27,20 @@ typedef struct graph
     int arcnum;
 }AdjGraph;
 
-//´´½¨ÁÚ½Ó±í
+//åˆ›å»ºé‚»æ¥è¡¨
 void CreateAdj(AdjGraph *&G, int A[MAXV][MAXV], int n, int e)
 {
     ArcNode *p;
     ArcNode *tail;
 
-    //³õÊ¼»¯Í¼½á¹¹
+    //åˆå§‹åŒ–å›¾ç»“æ„
     G = (AdjGraph *)malloc(sizeof(AdjGraph));
     G->vexnum = n;
     G->arcnum = e;
 
     for (int i = 0; i < n; i++)
     {
-        //³õÊ¼»¯Í·½áµã
+        //åˆå§‹åŒ–å¤´ç»“ç‚¹
         G->adjlist[i].data = i;
         G->adjlist[i].firstarc = NULL;
         tail = NULL;
@@ -49,7 +49,7 @@ void CreateAdj(AdjGraph *&G, int A[MAXV][MAXV], int n, int e)
         {
             if (A[i][j])
             {
-                //´´½¨±ß½çµã
+                //åˆ›å»ºè¾¹ç•Œç‚¹
                 p = (ArcNode*)malloc(sizeof(ArcNode));
                 p->adjvex = j;
                 p->info = A[i][j];
@@ -75,10 +75,10 @@ void DispAdj(AdjGraph *G)
     
     for (int i = 0; i < G->vexnum; i++)
     {
-        // ´òÓ¡Í·½Úµã
+        // æ‰“å°å¤´èŠ‚ç‚¹
         printf("%d: ", i);
         
-        // ±éÀú¸Ã¶¥µãµÄÁÚ½Ó±í
+        // éå†è¯¥é¡¶ç‚¹çš„é‚»æ¥è¡¨
         ArcNode *p = G->adjlist[i].firstarc;
         while (p != NULL)
         {
@@ -86,36 +86,36 @@ void DispAdj(AdjGraph *G)
             p = p->nextarc;
         }
         
-        // ´òÓ¡½áÊø·ûºÅ
+        // æ‰“å°ç»“æŸç¬¦å·
         printf("^\n");
     }
 }
 
-//Éî¶ÈÓÅÏÈËÑË÷
+//æ·±åº¦ä¼˜å…ˆæœç´¢
 void DFS1(AdjGraph *G, int v)
 {
     int visited[MAXV] = {0};
     int stack[MAXV];
     int stack_top = -1;
 
-    //ÆğÊ¼µãÈëÕ»
+    //èµ·å§‹ç‚¹å…¥æ ˆ
     stack[++stack_top] = v;
     visited[v] = 1;
     printf("%d ", v);
 
-    //µ±Õ»·Ç¿ÕµÄÊ±ºò£¬ÖØ¸´ÒÔÏÂÑ­»·
+    //å½“æ ˆéç©ºçš„æ—¶å€™ï¼Œé‡å¤ä»¥ä¸‹å¾ªç¯
     while (stack_top >= 0)
     {
-        //²é¿´Õ»¶¥½ÚµãµÄÁÚ½Óµã
+        //æŸ¥çœ‹æ ˆé¡¶èŠ‚ç‚¹çš„é‚»æ¥ç‚¹
         int curr = stack[stack_top];
         ArcNode* p = G->adjlist[curr].firstarc;
 
-        //±êÖ¾±¾´Î²éÕÒÊÇ·ñÓĞ·¢ÏÖÎ´·ÃÎÊ¹ıµÄ½áµã
+        //æ ‡å¿—æœ¬æ¬¡æŸ¥æ‰¾æ˜¯å¦æœ‰å‘ç°æœªè®¿é—®è¿‡çš„ç»“ç‚¹
         int found = 0;
-        //ÓĞÁÚ½ÓµãÊ±
+        //æœ‰é‚»æ¥ç‚¹æ—¶
         while (p != NULL)
         {
-            //Èô¸ÃµãÃ»ÓĞ±»·ÃÎÊ¹ı£¬ÔòÈëÕ»²¢·ÃÎÊ
+            //è‹¥è¯¥ç‚¹æ²¡æœ‰è¢«è®¿é—®è¿‡ï¼Œåˆ™å…¥æ ˆå¹¶è®¿é—®
             if (!visited[p->adjvex])
             {
                 stack[++stack_top] = p->adjvex;
@@ -126,7 +126,7 @@ void DFS1(AdjGraph *G, int v)
             }
             p = p->nextarc;
         }
-        //Èô¸ÃµãµÄËùÓĞÁÚ½Ó½Úµã¶¼±»·ÃÎÊ¹ıÁË£¬ÄÇÃ´¸Ã½Úµã³öÕ»
+        //è‹¥è¯¥ç‚¹çš„æ‰€æœ‰é‚»æ¥èŠ‚ç‚¹éƒ½è¢«è®¿é—®è¿‡äº†ï¼Œé‚£ä¹ˆè¯¥èŠ‚ç‚¹å‡ºæ ˆ
         if (!found)
         {
             stack_top--;
@@ -139,13 +139,13 @@ void dfs_topological(AdjGraph *G)
     int stack[MAXV];
     int stack_top = -1;
     int n = G->vexnum;
-    //³õÊ¼»¯Èë¶È
+    //åˆå§‹åŒ–å…¥åº¦
     for (int i = 0; i < n; i++)
     {
         G->adjlist[i].count = 0;
     }
 
-    //¼ÆËãÈë¶È
+    //è®¡ç®—å…¥åº¦
     for (int i = 0; i < n; i++)
     {
         ArcNode *p = G->adjlist[i].firstarc;
@@ -156,7 +156,7 @@ void dfs_topological(AdjGraph *G)
         }
     }
     
-    //°ÑËùÓĞÈë¶ÈÎª0µÄµãÈëÕ»
+    //æŠŠæ‰€æœ‰å…¥åº¦ä¸º0çš„ç‚¹å…¥æ ˆ
     for (int i = 0; i < n; i++)
     {
         if (G->adjlist[i].count == 0)
@@ -167,7 +167,7 @@ void dfs_topological(AdjGraph *G)
 
     while (stack_top >= 0)
     {
-        //³öÕ»·ÃÎÊ²¢ÇÒ¼õÉÙÁÚ¾ÓÈë¶È
+        //å‡ºæ ˆè®¿é—®å¹¶ä¸”å‡å°‘é‚»å±…å…¥åº¦
         int curr = stack[stack_top--];
         printf("%d ", curr);
         ArcNode *p = G->adjlist[curr].firstarc;
