@@ -38,16 +38,3 @@
 * **Language**: C++
 * **Compiler**: g++ / MinGW
 * **IDE**: Visual Studio Code (已配置 `.vscode` 环境)
-
-## 🚀 如何运行 (How to Run)
-
-本项目包含标准的 VS Code 配置文件。
-
-1. **使用 VS Code 运行**:
-   打开任意 `.cpp` 文件，按下 `F5` 或点击右上角的运行按钮即可调试。
-
-2. **使用命令行编译**:
-   ```bash
-   # 示例：编译并运行哈夫曼树程序
-   g++ Huffman.cpp -o huffman
-   ./huffman
