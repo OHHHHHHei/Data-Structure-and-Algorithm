@@ -60,7 +60,7 @@ int main(void)
     int num;
     printf("Input the village number:");
     scanf("%d", &num);
-    printf("Input the road lengths row by tow(0 for a non-existing road):\n");
+    printf("Input the road lengths row by row(0 for a non-existing road):\n");
 
     int A[MAXV][MAXV];
     for (int i = 0; i < num; i++)
