@@ -82,17 +82,17 @@ int main()
     struct node* list2;
     struct node* list3;
 
-    printf("请依次输入链表X的元素值（设输入-1为终止条件）：\n");
+    printf("请依次输入链表X的元素值(设输入-1为终止条件):\n");
     list1 = create_node();
     print_list(list1);
 
-    printf("请依次输入链表Y的元素值（设输入-1为终止条件）：\n");
+    printf("请依次输入链表Y的元素值(设输入-1为终止条件):\n");
     list2 = create_node();
     print_list(list2);
 
 
     list3 = merge_list(list1, list2);
-    printf("链表Z：");
+    printf("链表Z:");
     print_list(list3);
 
     return 0;

@@ -1,4 +1,4 @@
-# Data Structures and Algorithms 🚀
+# Data Structures and Algorithms
 
 ![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
 ![Standard](https://img.shields.io/badge/Standard-C%2B%2B11%20%2F%2014-orange)
