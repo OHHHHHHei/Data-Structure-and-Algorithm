@@ -6,8 +6,8 @@
 typedef struct BTNode
 {
     char data;
-    BTNode* left;
-    BTNode* right;
+    BTNode *left;
+    BTNode *right;
 }BTNode;
 
 
@@ -28,11 +28,11 @@ void DispBTree(BTNode *b)
     }
 }
 
-BTNode* CreateBT(char *pre, char *in, int n)
+BTNode *CreateBT(char *pre, char *in, int n)
 {
     // 1. 创建当前根节点
-    BTNode* head;
-    head = (BTNode*)malloc(sizeof(BTNode));
+    BTNode *head;
+    head = (BTNode *)malloc(sizeof(BTNode));
 
     // 2. 先序第一个元素就是根节点的值
     head->data = pre[0];

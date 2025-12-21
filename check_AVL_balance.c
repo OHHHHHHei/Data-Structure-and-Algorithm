@@ -33,7 +33,7 @@ int Isbalance(BTtree *T)
 
     if (Isbalance(T->lchild) && Isbalance(T->rchild))
     {
-            if (abs(countdepth(T->lchild) - countdepth(T->rchild)) <= 1)
+        if (abs(countdepth(T->lchild) - countdepth(T->rchild)) <= 1)
         {
             return 1;
         }
