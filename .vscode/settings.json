@@ -1,7 +1,7 @@
 {
     "code-runner.executorMap": {
         "c": "g++ \"$fileName\" -o \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\"; if ($LASTEXITCODE -eq 0) { & \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\" }",
-        "cpp": "g++ \"$fileName\" -o \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\"; if ($LASTEXITCODE -eq 0) { & \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\" }"
+        "cpp": "cd $dir && g++ -fexec-charset=GBK $fileName -o \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\" && & \"$workspaceRoot\\bin\\$fileNameWithoutExt.exe\"",
     },
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
