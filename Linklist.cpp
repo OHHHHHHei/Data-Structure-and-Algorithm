@@ -32,34 +32,28 @@ int main()
     {
         scanf("%ld %f", &num, &score);
         
-        // ????0?????
-        if (num == 0)
-            break;
-        
-        // ?????
+        if (num == 0) break;
+
         p = (struct student *)malloc(sizeof(struct student));
         p->num = num;
         p->score = score;
         p->next = NULL;
         
-        // ????????
         if (head == NULL)
         {
             head = p;
             tail = p;
         }
-        else  // ???????
+        else
         {
             tail->next = p;
             tail = p;
         }
     }
     
-    // ????
     printf("\nStudent information:\n");
     print(head);
     
-    // ????
     p = head;
     while (p != NULL)
     {
