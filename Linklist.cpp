@@ -8,7 +8,6 @@ struct student{
     struct student *next;
 };
 
-
 void print(struct student *head)
 {
     struct student *p = head;

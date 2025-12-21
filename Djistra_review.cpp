@@ -11,8 +11,11 @@ typedef struct Graph
 }Graph;
 
 
-void distra(Graph G, int v0, int dist[], int path[]) {
+void distra(Graph G, int v0) {
     int visited[MAXV];
+    int dist[MAXV];
+    int path[MAXV];
+    
     // Init
     for (int i = 0; i < G.vertexnum; i++)
     {
